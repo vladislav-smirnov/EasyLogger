@@ -1,0 +1,22 @@
+[versions]
+kotlin = "1.9.23"
+ksp = "1.9.23-1.0.19"
+autoService = "1.1.0" # For com.google.auto.service:auto-service
+autoServiceLegacy = "1.0-rc4" # For the older com.google.auto.service:auto-service in kotlin-plugin
+autoServiceKsp = "1.1.0" # For dev.zacsweers.autoservice:auto-service-ksp
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-compilerEmbeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
+kotlin-gradlePluginApi = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin-api" } # No explicit version, usually from Kotlin plugin
+
+autoService-annotations = { module = "com.google.auto.service:auto-service", version.ref = "autoService" }
+autoService-annotationsLegacy = { module = "com.google.auto.service:auto-service", version.ref = "autoServiceLegacy" }
+autoService-ksp = { module = "dev.zacsweers.autoservice:auto-service-ksp", version.ref = "autoServiceKsp" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+# Not adding 'application' or 'java-gradle-plugin' etc. here as they are core or don't have managed versions in the same way.
+# The project's own plugin 'easylogger.plugin' also won't be versioned here.
